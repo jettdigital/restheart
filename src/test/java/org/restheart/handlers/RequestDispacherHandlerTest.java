@@ -81,7 +81,7 @@ public class RequestDispacherHandlerTest {
         gfsFile.save();
     }
 
-    //@Test
+    @Test
     public void test_put_file_request() throws Exception {
         System.out.println("+++ test_put_file_request");
 
