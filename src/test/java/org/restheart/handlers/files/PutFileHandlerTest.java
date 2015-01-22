@@ -32,30 +32,30 @@ import org.restheart.handlers.RequestContext;
  * @author Maurizio Turatti <info@maurizioturatti.com>
  */
 public class PutFileHandlerTest {
-    
+
     public PutFileHandlerTest() {
     }
-    
+
     @BeforeClass
     public static void setUpClass() {
     }
-    
+
     @AfterClass
     public static void tearDownClass() {
     }
-    
+
     @Before
     public void setUp() {
     }
-    
+
     @After
     public void tearDown() {
     }
 
     @Test
-    public void testHandleRequest() throws Exception { 
+    public void testHandleRequest() throws Exception {
         System.out.println("handleRequest");
-        
+
         HttpServerExchange exchange = new HttpServerExchange();
         exchange.setRequestPath("/db/filecoll/_files/123");
         exchange.setRequestMethod(new HttpString("PUT"));
@@ -63,8 +63,8 @@ public class PutFileHandlerTest {
         RequestContext context = new RequestContext(exchange, "/", "/");
         PutFileHandler instance = new PutFileHandler();
         instance.handleRequest(exchange, context);
-        
-       assertEquals(201, exchange.getResponseCode());
+
+        assertEquals(201, exchange.getResponseCode());
     }
-    
+
 }
