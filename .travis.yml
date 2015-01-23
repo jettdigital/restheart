@@ -15,3 +15,8 @@ notifications:
     recipients:
     - maurizio@softinstigate.com
     on_success: always
+cache:
+  apt: true
+  directories:
+  - $HOME/.m2
+
