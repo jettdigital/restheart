@@ -2,8 +2,14 @@ language: java
 jdk:
 - oraclejdk8
 services: mongodb
-install: mvn clean
-before_script: git submodule update --init --recursive 
+before_script:
+- sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10
+- echo 'deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist 10gen' | sudo tee /etc/apt/sources.list.d/mongodb.list
+- sudo apt-get update
+- sudo apt-get install -y mongodb-org=2.6
+- git submodule update --init --recursive
+- until nc -z localhost 27017; do echo Waiting for MongoDB; sleep 1; done
+- mongo --version 
 script: mvn verify
 notifications:
   email:
